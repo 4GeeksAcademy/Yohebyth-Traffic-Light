@@ -1,12 +1,34 @@
-
-/* 
-
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
-
-*/
+main{
+    border: solid 2px orange;
+    height: 100vh;
+}
+.stick{
+    width: 2rem;
+    height: 10rem;
+    margin: 3rem auto 0 auto;
+    border: solid 1px darkblue;
+    background-color: black;    
+}
+.lightContent{
+    width: 14rem;
+    height: 34rem;
+    margin: 0 auto 0 auto;
+    background-color: black;
+    border-radius: 2rem;
+    padding: 2rem;
+}
+.lightContent div{
+    width: 10rem;
+    height: 10rem;
+    border: solid 1px red;
+    border-radius: 50%;
+}
+.red{
+    background-color: red;
+}
+.yellow{
+    background-color: yellow;
+}
+.green{
+    background-color: green;
+}
