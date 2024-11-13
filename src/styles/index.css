@@ -8,12 +8,17 @@ main{
     background-color: black;    
 }
 .lightContent{
-    width: 14rem;
-    height: 34rem;
+    width: 14rem;    
     margin: 0 auto 0 auto;
     background-color: black;
     border-radius: 2rem;
     padding: 2rem;
+}
+.purpleActive{
+    height: 44rem;
+}
+.purpleDesactive{
+    height: 34rem;
 }
 .lightContent div{
     width: 10rem;
@@ -29,9 +34,13 @@ main{
 .green{
     background-color: green;
 }
+.purple{
+    background-color:purple;
+}
 .light{
     box-shadow: 0 0 4rem 2rem lightgoldenrodyellow;
 }
 .color-button{
     margin: 2rem;
+    padding: 2rem;
 }

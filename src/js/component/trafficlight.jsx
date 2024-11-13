@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import AddPurple from "./addpurple";
 
 const TrafficLight = () =>{    
 
@@ -6,11 +7,10 @@ const TrafficLight = () =>{
     const colorSelected = (colorClick) => {
         setLightOn(colorClick);        
     }
-    const [changeColor, setChangeColor] = useState (false);
+    const [alternateColor, setAlternateColor] = useState (false);
     useEffect (()=>{
-        if(changeColor===true){
-            setTimeout(() => {
-                console.log("me ejecuto");                
+        if(alternateColor===true){
+            setTimeout(() => {               
                 if(lightOn === "green"){
                     setLightOn("yellow");                    
                 } else if(lightOn === "yellow"){
@@ -18,7 +18,8 @@ const TrafficLight = () =>{
                 } else setLightOn("green");
             }, 1500)            
         }                
-    },[changeColor, lightOn]);
+    },[alternateColor, lightOn]);
+    const [purpleState, setPupleState] = useState(false);
 
 
     return(
@@ -26,7 +27,7 @@ const TrafficLight = () =>{
             <div className="stick">
 
             </div>
-            <div className="lightContent">
+            <div className={`lightContent ${(purpleState)===true? "purpleActive" : "purpleDesactive"}`}>
                 <div 
                     className={`red ${(lightOn==="red")? "light" : ""}`}
                     onClick={ () => {colorSelected("red")}}
@@ -39,13 +40,20 @@ const TrafficLight = () =>{
                     className={`green ${(lightOn==="green")? "light" : ""}`}
                     onClick={ () => {colorSelected("green")}}
                 ></div>
+                {(purpleState)===true? <AddPurple/> : ""}
             </div>
             
             <button 
                 type="button" className="color-button btn btn-primary"
-                onClick={() => setChangeColor(!changeColor)}
+                onClick={() => setAlternateColor(!alternateColor)}
             >
-                Change light color
+                Alternate light color
+            </button>
+            <button 
+                type="button" className="color-button btn btn-primary"
+                onClick={() => setPupleState(!purpleState)}
+            >
+                Add Purple Light
             </button>
         </main>
     )
