@@ -1,11 +1,25 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 
 const TrafficLight = () =>{    
 
     const [lightOn, setLightOn] = useState("green");
-    const colorSelected = (color) => {
-        setLightOn(color);        
+    const colorSelected = (colorClick) => {
+        setLightOn(colorClick);        
     }
+    const [changeColor, setChangeColor] = useState (false);
+    useEffect (()=>{
+        if(changeColor===true){
+            setTimeout(() => {
+                console.log("me ejecuto");                
+                if(lightOn === "green"){
+                    setLightOn("yellow");                    
+                } else if(lightOn === "yellow"){
+                    setLightOn("red");
+                } else setLightOn("green");
+            }, 1500)            
+        }                
+    },[changeColor, lightOn]);
+
 
     return(
         <main>
@@ -26,7 +40,13 @@ const TrafficLight = () =>{
                     onClick={ () => {colorSelected("green")}}
                 ></div>
             </div>
-            <button className="color-button">Change Color</button>
+            
+            <button 
+                type="button" className="color-button btn btn-primary"
+                onClick={() => setChangeColor(!changeColor)}
+            >
+                Change light color
+            </button>
         </main>
     )
 }
